@@ -145,9 +145,9 @@ class ApiControllerTest extends DatabaseAwareTestCase {
             ])
         );
         
-        $user = $this->em->find('Overwatch\UserBundle\Entity\User', UserFixtures::$users['user-2']->getId());
-        
         $this->assertJsonResponse($this->client->getResponse());
+
+        $user = $this->em->find('Overwatch\UserBundle\Entity\User', UserFixtures::$users['user-2']->getId());
         $this->assertEquals(
             1,
             $user->getAlertSetting()
